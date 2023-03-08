@@ -2,3 +2,7 @@
   [1m[35m (267.8ms)[0m  [1m[35mCREATE DATABASE "FirstRoutes_test" ENCODING = 'unicode'[0m
   [1m[35m (185.4ms)[0m  [1m[35mCREATE DATABASE "FirstRoutes_development" ENCODING = 'unicode'[0m
   [1m[35m (85.7ms)[0m  [1m[35mCREATE DATABASE "FirstRoutes_test" ENCODING = 'unicode'[0m
+Started OPTIONS "/users" for 127.0.0.1 at 2023-03-08 15:24:58 -0800
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/users"):
+  
