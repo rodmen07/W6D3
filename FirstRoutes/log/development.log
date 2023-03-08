@@ -6,3 +6,30 @@ Started OPTIONS "/users" for 127.0.0.1 at 2023-03-08 15:24:58 -0800
   
 ActionController::RoutingError (No route matches [OPTIONS] "/users"):
   
+Started POST "/users" for ::1 at 2023-03-08 15:28:40 -0800
+
+AbstractController::ActionNotFound - The action 'create' could not be found for UsersController:
+
+Started GET "/users" for ::1 at 2023-03-08 15:30:35 -0800
+
+AbstractController::ActionNotFound - The action 'index' could not be found for UsersController:
+
+Started GET "/users" for ::1 at 2023-03-08 15:33:01 -0800
+Processing by UsersController#index as */*
+No template found for UsersController#index, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 273)
+
+
+Started GET "/users" for ::1 at 2023-03-08 15:34:05 -0800
+Processing by UsersController#index as */*
+No template found for UsersController#index, rendering head :no_content
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 82)
+
+
+Started GET "/users" for ::1 at 2023-03-08 15:35:41 -0800
+Processing by UsersController#index as */*
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 13)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 1322)
+
+
