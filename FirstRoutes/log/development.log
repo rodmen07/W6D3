@@ -1,2 +1,4 @@
   [1m[35m (357.8ms)[0m  [1m[35mCREATE DATABASE "FirstRoutes_development" ENCODING = 'unicode'[0m
   [1m[35m (267.8ms)[0m  [1m[35mCREATE DATABASE "FirstRoutes_test" ENCODING = 'unicode'[0m
+  [1m[35m (185.4ms)[0m  [1m[35mCREATE DATABASE "FirstRoutes_development" ENCODING = 'unicode'[0m
+  [1m[35m (85.7ms)[0m  [1m[35mCREATE DATABASE "FirstRoutes_test" ENCODING = 'unicode'[0m
