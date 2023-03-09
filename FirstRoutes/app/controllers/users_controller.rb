@@ -15,13 +15,46 @@ class UsersController < ApplicationController
     end
 
     def show
-        render json: User.find(params[:id])
+        user = User.find_by(id: params[:id])
+        if user.nil?
+            render plain: 'user doesnt exist'
+        else
+            render json: User.find(params[:id])
+        end
+
     end
 
     def update
-        render json: User.update(params[:id], )
+        
+        user = User.find_by(id: params[:id])
+        if user.nil?
+            render plain: 'user doesnt exist'
+        else
+            user.update!(user_params)
+            render json: user
+        end
+        
+       
     end
 
+    
+
     def destroy
+        user = User.find_by(id: params[:id])
+        if user.nil?
+            render plain: 'user doesnt exist'
+            # render json: user.errors.full_messages, status: :unprocessable_entity
+        else 
+            user.delete
+            render json: User.all
+        end
+
+    end
+
+    private 
+
+    def user_params
+
+        params.require(:user).permit(:name, :email)
     end
 end
