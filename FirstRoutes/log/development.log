@@ -60,3 +60,101 @@ Migrating to CreateUsers (20230309004803)
   [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "sam"], ["email", "sam1"], ["created_at", "2023-03-09 01:23:50.338812"], ["updated_at", "2023-03-09 01:23:50.338812"]]
   [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (25.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5947462904764865085)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20230309004803)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL, "email" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230309004803"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-09 01:44:07.892163"], ["updated_at", "2023-03-09 01:44:07.892163"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5947462904764865085)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "1"], ["email", "1"], ["created_at", "2023-03-09 01:46:10.106642"], ["updated_at", "2023-03-09 01:46:10.106642"]]
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "2"], ["email", "2"], ["created_at", "2023-03-09 01:46:35.434722"], ["updated_at", "2023-03-09 01:46:35.434722"]]
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "3"], ["email", "3"], ["created_at", "2023-03-09 01:46:38.298739"], ["updated_at", "2023-03-09 01:46:38.298739"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/users/" for ::1 at 2023-03-08 17:50:14 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{":name"=>"Rod", ":email"=>"rm@gmail.com"}}
+[31mUnpermitted parameters: ::name, ::email. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fcc44060c80>, params: {"user"=>{":name"=>"Rod", ":email"=>"rm@gmail.com"}, "controller"=>"users", "action"=>"create"} }[0m
+Completed 422 Unprocessable Entity in 21ms (ActiveRecord: 3.2ms | Allocations: 8663)
+
+
+
+ActiveRecord::RecordInvalid - Validation failed: Name can't be blank, Email can't be blank:
+  app/controllers/users_controller.rb:10:in `create'
+
+Started POST "/users/" for ::1 at 2023-03-08 17:50:37 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Rod", "email"=>"rm@gmail.com"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Rod"], ["email", "rm@gmail.com"], ["created_at", "2023-03-09 01:50:37.379268"], ["updated_at", "2023-03-09 01:50:37.379268"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+Completed 200 OK in 12ms (Views: 0.7ms | ActiveRecord: 7.2ms | Allocations: 3797)
+
+
+Started GET "/users" for ::1 at 2023-03-09 08:35:57 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 14ms (Views: 5.7ms | ActiveRecord: 7.3ms | Allocations: 6393)
+
+
+Started POST "/users" for ::1 at 2023-03-09 08:37:54 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Carl"}}
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.0ms | Allocations: 3558)
+
+
+
+ActiveRecord::RecordInvalid - Validation failed: Email can't be blank:
+  app/controllers/users_controller.rb:10:in `create'
+
+Started POST "/users" for ::1 at 2023-03-09 08:39:14 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Carl"}}
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 3603)
+
+
+Started GET "/users/1" for ::1 at 2023-03-09 08:41:58 -0800
+
+SyntaxError - syntax error, unexpected '=', expecting ')'
+...  render json: User.where(:id = params[id])
+...                              ^
+/home/rodmen07/AppAcademyOnlineProgramFiles/aA_Classwork/Week 6 Files/W6D3/FirstRoutes/app/controllers/users_controller.rb:18: syntax error, unexpected ')', expecting `end'
+...n: User.where(:id = params[id])
+...                              ^
+/home/rodmen07/AppAcademyOnlineProgramFiles/aA_Classwork/Week 6 Files/W6D3/FirstRoutes/app/controllers/users_controller.rb:25: syntax error, unexpected end-of-input, expecting `end':
+  app/controllers/users_controller.rb:18:in `'
+
+Started GET "/users/1" for ::1 at 2023-03-09 08:43:39 -0800
+
+SyntaxError - syntax error, unexpected end-of-input, expecting `end':
+  app/controllers/users_controller.rb:25:in `'
+
+Started GET "/users/1" for ::1 at 2023-03-09 08:43:54 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `show'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 3.0ms | Allocations: 6022)
+
+
